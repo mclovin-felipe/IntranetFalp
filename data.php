@@ -5,9 +5,10 @@ $user = "root";
 $pass = "Vicente2112@";
 $database = "prueba";
 $conn =mysqli_connect($host, $user, $pass, $database);
-$fecha = date('Ymd',strtotime("-1 days"));
+$fecha = date('Y-m-d',strtotime($_GET['fecha1']));
+$fecha2 = date('Y-m-d',strtotime($_GET['fecha2']));
+$result = $conn->query("SELECT * FROM log WHERE fecha BETWEEN '".$fecha."' AND '".$fecha2."'");
 
-$result = $conn->query("SELECT * FROM log WHERE log_origen='LogAPI_".$fecha.".log'");
 //echo ("SELECT * FROM log WHERE log_origen='LogAPI_".$fecha.".log'");
 $data = array();
  while($row = $result->fetch_assoc()){
@@ -24,5 +25,6 @@ $data = array();
   array_push($data, $row_data);
  }
 
+//$fecha = strtotime($fecha) + strtotime("1 days");
  echo json_encode($data);
 ?>

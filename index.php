@@ -21,6 +21,7 @@
 <!----->
 <!----->
 <!----->
+
 <div class="d-flex">
 	<div id="sidebar-container" class = "bg-primary">
 		<div class="logo">
@@ -53,15 +54,18 @@
         <option>Disabled select</option>
       </select>
     </div>
-<label for="customRange1" class="form-label">Example range</label>
+<label for="customRange1" class="form-label">Filtro hora y fecha</label>
 <div class="mb-3">
 <input type="date" id="start" name="trip-start"
 	   value=<?php echo date("Y-m-d"); ?>
        min="2001-01-01" max="2025-12-31">
-
+<input class = "m-2"type="time" id="appt" name="appt"
+       min="00:00:00" max="23:59:59" required>
 <input type="date" id="start" name="trip-start"
 value=<?php echo date('Y-m-d');?>
        min="2001-01-01" max="2025-12-31">
+<input class ="m-2"type="time" id="appt" name="appt"
+       min="00:00" max="18:00" required>
 <input type="button" id = "getusers" value = "Fetch Records" />
 </div>
 </div>
