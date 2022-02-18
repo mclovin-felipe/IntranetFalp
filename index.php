@@ -1,12 +1,3 @@
-<?php 
-$host = "localhost";
-$user = "root";
-$pass = "Vicente2112@";
-$database = "prueba";
-$conn =mysqli_connect($host, $user, $pass, $database);
-$result = $conn->query("SELECT * FROM log");
-?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,6 +14,13 @@ $result = $conn->query("SELECT * FROM log");
 	<title>Falp Intranet logs</title>
 </head>
 <body>
+<!----->
+<!----->
+<!----->
+<!--SideBar-->
+<!----->
+<!----->
+<!----->
 <div class="d-flex">
 	<div id="sidebar-container" class = "bg-primary">
 		<div class="logo">
@@ -64,11 +62,17 @@ $result = $conn->query("SELECT * FROM log");
 <input type="date" id="start" name="trip-start"
 value=<?php echo date('Y-m-d');?>
        min="2001-01-01" max="2025-12-31">
+<input type="button" id = "getusers" value = "Fetch Records" />
 </div>
 </div>
 </form>
  </div>
  </div>
+<!----->
+<!----->
+<!--TABLA-->
+<!----->
+<!----->
 <div class="container">
 <h2 class = "center">Tablas jeje</h2>
 <div id="table-container"></div>
@@ -79,24 +83,21 @@ value=<?php echo date('Y-m-d');?>
             <th>Fecha</th>
 			<th>Metodo</th>
 			<th>Enlace</th>
-			<th>IP origen</th>
+			<th>Estado</th>
 			<th>Tiempo Respuesta</th>
+			<th>IP origen</th>
 			<th>Largo Respuesta</th>
         </tr>
     </thead>
     <tbody>
-<?php 	
-while($row = $result->fetch_assoc()) {
-		echo "<tr><td>".$row["log_origen"]."</td><td>".$row["fecha"]."</td><td>".$row["metodo"]."</td><td>".$row["enlace"]."</td><td>".$row["IP_cliente"]."</td><td>".$row["tiempo_respuesta"]."</td><td>".$row["largo_peticion"]."</td></tr>";
-}
-
-
-
-?>
 	</tbody>
 </table>
 </div>
  </div>
+<!----->
+<!----->
+<!----->
+<!----->
  </body>
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.js"></script>
 <script src="js/scripts.js"></script>
