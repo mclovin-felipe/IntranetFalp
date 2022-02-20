@@ -33,43 +33,33 @@
 		    <a href= "#" class="d-block text-light p-3"><i class="icon ion-md-person mr-2 lead"></i> Perfil</a>
 			<a href= "#" class="d-block text-light p-3"><i class="icon ion-md-settings mr-2 lead"></i> Configuracion</a>
 -->
-<form>
+<form >
 <div class = "p-3 text-light">
-	<div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
-  </div>
-  <div class="mb-3 form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
+<label for="customRange1" class="form-label">Filtro hora y fecha</label>
 <div class="mb-3">
+<input type="date" id="fecha1" name="fecha1"
+	   value=<?php echo date("Y-m-d"); ?>
+       min="2001-01-01" max="2025-12-31">
+<input class = "m-2"type="time" id="hora1" name="hora1"
+	   value="00:00"
+       min="00:00:00" max="23:59:59">
+<input type="date" id="fecha2" name="fecha2"
+value=<?php echo date('Y-m-d');?>
+       min="2001-01-01" max="2025-12-31">
+<input class ="m-2"type="time" id="hora2" name="hora2"
+	   value="23:59"
+       min="00:00" max="23:59:59">
+</div>
+<button type="button" id = "update" class="btn btn-dark">Filtrar</button>
+
+</div>
+</form>
+<div class="mb-3 p-3">
       <label for="disabledSelect" class="form-label">Disabled select menu</label>
       <select id="disabledSelect" class="form-select">
         <option>Disabled select</option>
       </select>
     </div>
-<label for="customRange1" class="form-label">Filtro hora y fecha</label>
-<div class="mb-3">
-<input type="date" id="start" name="trip-start"
-	   value=<?php echo date("Y-m-d"); ?>
-       min="2001-01-01" max="2025-12-31">
-<input class = "m-2"type="time" id="appt" name="appt"
-       min="00:00:00" max="23:59:59" required>
-<input type="date" id="start" name="trip-start"
-value=<?php echo date('Y-m-d');?>
-       min="2001-01-01" max="2025-12-31">
-<input class ="m-2"type="time" id="appt" name="appt"
-       min="00:00" max="18:00" required>
-<input type="button" id = "getusers" value = "Fetch Records" />
-</div>
-</div>
-</form>
  </div>
  </div>
 <!----->
