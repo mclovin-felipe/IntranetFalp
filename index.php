@@ -24,7 +24,7 @@
 <div class="wrapper"> 
 	<div id="sidebar" class = "bg-primary">
 <div class="sidebar-header text-light">
-                <h3>Bootstrap Sidebar</h3>
+                <h3>Logs Falp Intranet</h3>
             </div>
 		<div class = "active">
 <!--			<a href= "#" class="d-block text-light p-3"><i class="icon ion-md-apps mr-2 lead"></i> Tablero</a>
@@ -49,14 +49,24 @@ value=<?php echo date("Y-m-d"); ?>
 	   value="23:59"
        min="00:00" max="23:59:59">
 </div>
-<button type="button" id = "update" class="btn btn-dark">Filtrar</button>
+<button type="button" id = "update" style="background-color: #4B6587;color:#F7F6F2;" class="btn">Filtrar</button>
 
 </div>
 </form>
 <div class="mb-3 p-3">
-      <label for="disabledSelect" class="form-label">Disabled select menu</label>
+      <label for="disabledSelect" class="form-label">Metodo</label>
       <select id="Metodos" class="form-select">
-        <option>Disabled select</option>
+        <option>SIN ELEGIR
+        </option>
+        <option>OPTIONS</option>
+        <option>GET</option>
+        <option>POST</option>
+        <option>PUT</option>
+        <option>DELETE</option>
+        <option>HEAD</option>
+        <option>TRACE</option>
+        <option>CONNECT</option>
+
       </select>
     </div>
  </div>
@@ -67,17 +77,17 @@ value=<?php echo date("Y-m-d"); ?>
 <!----->
 <!----->
 <div class="content">
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg" style="background-color:#F0E5CF;">
         <div class="container-fluid">
 
-            <button type="button" id="sidebarCollapse" class="btn btn-info">
+            <button type="button" id="sidebarCollapse" class="btn">
                 <i class="fas fa-align-left"></i>
-                <span>Toggle Sidebar</span>
+                <span>Filtros</span>
             </button>
 
         </div>
     </nav>
-<h2 class = "center">Tablas jeje</h2>
+
 <table id="table_id" class="table table-striped">
 <thead>
         <tr>

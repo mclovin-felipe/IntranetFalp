@@ -18,7 +18,7 @@ $("#update").click(function () {
 	let fecha1 = $("#fecha1").val().replace(/-/g, "");
 	let fecha2 = $("#fecha2").val().replace(/-/g, "");
 	let hora1 = $("#hora1").val();
-	let hora2 = $("#hora1").val();
+	let hora2 = $("#hora2").val();
 
 	$.ajax({
 		method: "GET",
@@ -29,7 +29,12 @@ $("#update").click(function () {
 			scrollCollapse: true,
 			searching: false,
 			retrieve: true,
+			searchPanes: {
+				viewTotal: true
+			},
+			dom: 'Plfrtip',
 		});
+		tabla.destroy();
 		let metodos = [];
 		tabla.clear();
 		$.each(result, function (key, value) {
@@ -60,4 +65,16 @@ $(document).ready(function () {
 });
 $(window).resize(function() {
   $('.dataTables_scrollBody').css('height', ($(window).height() - 200));
+});
+$('select').on('change', function (e) {
+	var optionSelected = $("option:selected", this);
+    var valueSelected = this.value;
+	console.log(valueSelected);
+	let table = $("#table_id").DataTable();
+	var filteredData = table
+    .column( 2 )
+    .data()
+    .filter( function ( value, index ) {
+        return value === valueSelected ? true : false;
+    } );
 });
