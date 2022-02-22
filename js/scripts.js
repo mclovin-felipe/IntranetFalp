@@ -28,21 +28,17 @@ $("#update").click(function () {
 		let tabla = $("#table_id").DataTable({
 			scrollCollapse: true,
 			searching: false,
+			destroy: true,
 			retrieve: true,
 			searchPanes: {
 				viewTotal: true
 			},
 			dom: 'Plfrtip',
 		});
-		tabla.destroy();
 		let metodos = [];
 		tabla.clear();
 		$.each(result, function (key, value) {
 
-			if (!metodos.includes(value['metodo'])){
-				console.log(value['metodo']);
-				$('#metodos').append(`<option>${value['metodo']}</option>`);
-			}
 			tabla.row
 				.add([
 					value["log_origen"],

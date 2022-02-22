@@ -2,8 +2,8 @@
 <?php 
 $host = "localhost";
 $user = "root";
-$pass = "Vicente2112@";
-$database = "prueba";
+$pass = "Falp_2020";
+$database = "logs";
 $conn =mysqli_connect($host, $user, $pass, $database);
 $fecha = date('Y-m-d',strtotime($_GET['fecha1']));
 $fecha2 = date('Y-m-d',strtotime($_GET['fecha2']));
