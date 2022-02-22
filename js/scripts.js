@@ -19,41 +19,65 @@ $("#update").click(function () {
 	let fecha2 = $("#fecha2").val().replace(/-/g, "");
 	let hora1 = $("#hora1").val();
 	let hora2 = $("#hora2").val();
+	let tipo = $('#update').val();
 
 	$.ajax({
 		method: "GET",
-		url: `data.php?fecha1=${fecha1}&hora1=${hora1}&fecha2=${fecha2}&hora2=${hora2}`,
-	}).done(function (data) {
-		var result = $.parseJSON(data);
-		let tabla = $("#table_id").DataTable({
-			scrollCollapse: true,
-			searching: false,
-			destroy: true,
-			retrieve: true,
-			searchPanes: {
-				viewTotal: true
-			},
-			dom: 'Plfrtip',
-		});
-		let metodos = [];
-		tabla.clear();
-		$.each(result, function (key, value) {
-
-			tabla.row
-				.add([
-					value["log_origen"],
-					value["fecha"],
-					value["metodo"],
-					value["enlace"],
-					value["estado"],
-					value["tiempo_respuesta"],
-					value["IP_cliente"],
-					value["largo_peticion"],
-				])
-				.draw();
-		});
-	});
+		url: `data.php?num=${tipo}&fecha1=${fecha1}&hora1=${hora1}&fecha2=${fecha2}&hora2=${hora2}`,
+	}).done(data =>{console.log(data);crearTabla(data)});
 });
+$(document).ready(function () {
+	let dato = $.parseJSON($('#ultimo').val());
+	let fecha1 = dato['fecha'].replace(/-/g, "");
+	let fecha2 = dato['fecha'].replace(/-/g, "");
+	let hora1 = "00:00";
+	let hora2 = "23:59";
+	let tipo = dato['num']
+	$.ajax({
+		method: "GET",
+		url: `data.php?num=${tipo}&fecha1=${fecha1}&hora1=${hora1}&fecha2=${fecha2}&hora2=${hora2}`,
+	}).done(data =>{console.log(data);crearTabla(data)});
+});
+$("#ultimo").click(function() {
+	console.log("hola");
+	$.ajax({
+		method:"GET",
+		url:`http://localhost:3300/api/SubirLogFecha?fecha=20220222`
+
+	}).done(data =>{
+		setTimeout(location.reload(),30000 )
+		});
+})
+function crearTabla(data) {
+	var result = $.parseJSON(data);
+	let tabla = $("#table_id").DataTable({
+		scrollCollapse: true,
+		searching: false,
+		destroy: true,
+		retrieve: true,
+		searchPanes: {
+			viewTotal: true
+		},
+		dom: 'Plfrtip',
+	});
+	let metodos = [];
+	tabla.clear();
+	$.each(result, function (key, value) {
+
+		tabla.row
+			.add([
+				value["log_origen"],
+				value["fecha"],
+				value["metodo"],
+				value["enlace"],
+				value["estado"],
+				value["tiempo_respuesta"],
+				value["IP_cliente"],
+				value["largo_peticion"],
+			])
+			.draw();
+	});
+}
 $(document).ready(function () {
 	$("#sidebarCollapse").on("click", function () {
 		$("#sidebar").toggleClass("active");
@@ -74,3 +98,9 @@ $('select').on('change', function (e) {
         return value === valueSelected ? true : false;
     } );
 });
+// $(document).ready(function () {
+// 	$("#entrar").on("click", function () {
+// 		let num = $('#entrar').val();
+//         window.location = `/tabla.php?num=${num}`;
+//     });
+// });

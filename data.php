@@ -2,16 +2,18 @@
 <?php 
 $host = "localhost";
 $user = "root";
-$pass = "Falp_2020";
+$pass = "Vicente2112@";
 $database = "logs";
 $conn =mysqli_connect($host, $user, $pass, $database);
+
 $fecha = date('Y-m-d',strtotime($_GET['fecha1']));
 $fecha2 = date('Y-m-d',strtotime($_GET['fecha2']));
 $hora1 = $_GET['hora1'];
 $hora2 = $_GET['hora2'];
-$result = $conn->query("SELECT * FROM log WHERE fecha BETWEEN '".$fecha." ".$hora1."' AND '".$fecha2." ".$hora2."'");
+$tipo = $_GET['num'];
+$result = $conn->query("SELECT * FROM API_".$tipo." WHERE fecha BETWEEN '".$fecha." ".$hora1."' AND '".$fecha2." ".$hora2."'");
 
-//echo ("SELECT * FROM log WHERE log_origen='LogAPI_".$fecha.".log'");
+
 $data = array();
  while($row = $result->fetch_assoc()){
   $row_data = array(

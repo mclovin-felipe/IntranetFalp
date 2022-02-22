@@ -1,11 +1,3 @@
-<?php
-	$host = "localhost";
-	$user = "root";
-	$pass = "Vicente2112@";
-	$database = "logs";
-	$conn =mysqli_connect($host, $user, $pass, $database);
-	$result = $conn->query("SELECT nombre ")
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,6 +15,13 @@
 	<title>Falp Intranet logs</title>
 </head>
 <body>
+<!----->
+<!----->
+<!----->
+<!--SideBar-->
+<!----->
+<!----->
+<!----->
 <div class="wrapper"> 
 	<div id="sidebar" class = "bg-primary">
 <div class="sidebar-header text-light">
@@ -51,15 +50,17 @@ value=<?php echo date("Y-m-d"); ?>
 	   value="23:59"
        min="00:00" max="23:59:59">
 </div>
-<button type="button" id = "update" style="background-color: #4B6587;color:#F7F6F2;" class="btn">Filtrar</button>
-
+<button type="button" id = "update" style="background-color: #4B6587;color:#F7F6F2;" class="btn" value="<?php echo $_GET['num'] ?>">Filtrar</button>
+<button type="button" id = "ultimo" style="background-color: #4B6587;color:#F7F6F2;" class="btn" value=<?php echo json_encode(array(
+    "num" => $_GET['num'],
+    "fecha" => date("Y-m-d"),
+)); ?>>Ultimo</button>
 </div>
 </form>
 <div class="mb-3 p-3">
       <label for="disabledSelect" class="form-label">Metodo</label>
       <select id="Metodos" class="form-select">
-        <option>SIN ELEGIR
-        </option>
+        <option>SIN ELEGIR</option>
         <option>OPTIONS</option>
         <option>GET</option>
         <option>POST</option>
@@ -73,7 +74,12 @@ value=<?php echo date("Y-m-d"); ?>
     </div>
  </div>
  </div>
- <div class="content">
+<!----->
+<!----->
+<!--TABLA-->
+<!----->
+<!----->
+<div class="content">
 <nav class="navbar navbar-expand-lg" style="background-color:#F0E5CF;">
         <div class="container-fluid">
 
@@ -84,56 +90,25 @@ value=<?php echo date("Y-m-d"); ?>
 
         </div>
     </nav>
-	<div class="container d-flex justify-content-center">
-		<div class="row">
-		<div class="card" style="width: 18rem; margin:50px;align-items:center; padding:10px;">
-  <img class="card-img-top" src="./src/server.png" alt="Server 1">
-  <div class="card-body">
-    <h5 class="card-title">Logs Server 1</h5>
-    <p class="card-text">Puerto: 3200</p>
-    <center>
-    <a href="tabla.php?num=1">
-    <button type="button" id="entrar2" class="btn" style="background-color: #F0E5CF;" value = "2">
-                <i class="fas fa-align-left"></i>
-                <span>Entrar</span>
-            </button>
-</a>
-  </div>
-  </div>
-  <div class="card" style="width: 18rem;margin:50px;align-items:center;padding:10px;">
-  <img class="card-img-top" src="./src/server.png" alt="Server 2">
-  <div class="card-body">
-    <h5 class="card-title">Logs Server 2</h5>
-    <p class="card-text">Puerto: 3210</p>
-    <center>
-    <a href="tabla.php?num=2">
-    <button type="button" id="entrar2" class="btn" style="background-color: #F0E5CF;" value = "2">
-                <i class="fas fa-align-left"></i>
-                <span>Entrar</span>
-            </button>
-</a>
 
-    </center>
-  </div>
-  </div>
-  <div class="card" style="width: 18rem;margin:50px; align-items:center;padding:10px;">
-  <img class="card-img-top" src="./src/server.png" alt="Server 3">
-  <div class="card-body">
-    <h5 class="card-title">Logs Server 3</h5>
-    <p class="card-text">Puerto: 3500</p>
-    <center>
-    <a href="tabla.php?num=3">
-    <button type="button" id="entrar2" class="btn" style="background-color: #F0E5CF;" value = "2">
-                <i class="fas fa-align-left"></i>
-                <span>Entrar</span>
-            </button>
-</a>
-    </center>
-  </div>
-  </div>
-	</div>
-	</div>
-	</div>
+<table id="table_id" class="table table-striped">
+<thead>
+        <tr>
+            <th>Log Origen</th>
+            <th>Fecha</th>
+			<th>Metodo</th>
+			<th>Enlace</th>
+			<th>Estado</th>
+			<th>Tiempo Respuesta</th>
+			<th>IP origen</th>
+			<th>Largo Respuesta</th>
+        </tr>
+    </thead>
+    <tbody>
+	</tbody>
+</table>
+</div>
+</div>
  </div>
 <!----->
 <!----->
@@ -141,7 +116,6 @@ value=<?php echo date("Y-m-d"); ?>
 <!----->
 </div>
  </body>
-
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.js"></script>
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap5.min.js"></script>
 <script src="js/scripts.js"></script>
