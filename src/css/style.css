@@ -1,4 +1,12 @@
 
+.card {
+	background-color: #4B6587;
+	color:#efefef;
+	margin: 7vh;
+	margin-top: 20%;
+	border-radius: 40px;
+
+}
 
 :root {
 	--primary:#111B54;

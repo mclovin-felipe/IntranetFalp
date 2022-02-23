@@ -32,7 +32,8 @@ $(document).ready(function () {
 	let fecha2 = dato['fecha'].replace(/-/g, "");
 	let hora1 = "00:00";
 	let hora2 = "23:59";
-	let tipo = dato['num']
+	let tipo = dato['num'];
+	console.log(dato['fecha']);
 	$.ajax({
 		method: "GET",
 		url: `data.php?num=${tipo}&fecha1=${fecha1}&hora1=${hora1}&fecha2=${fecha2}&hora2=${hora2}`,
@@ -45,9 +46,12 @@ $("#ultimo").click(function() {
 		url:`http://localhost:3300/api/SubirLogFecha?fecha=20220222`
 
 	}).done(data =>{
-		setTimeout(location.reload(),30000 )
+		setTimeout(timeout,300 )
 		});
 })
+function timeout() {
+	location.reload();
+}
 function crearTabla(data) {
 	var result = $.parseJSON(data);
 	let tabla = $("#table_id").DataTable({

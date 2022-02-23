@@ -1,4 +1,7 @@
+<?php 
+date_default_timezone_set("America/Santiago");
 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,25 +39,26 @@
 <form >
 <div class = "p-3 text-light">
 <label for="customRange1" class="form-label">Filtro hora y fecha</label>
-<div class="mb-3">
+<div class="row">
+    <div>
 <input type="date" id="fecha1" name="fecha1"
 	   value=<?php echo date("Y-m-d"); ?>
        min="2001-01-01" max="2025-12-31">
-<input class = "m-2"type="time" id="hora1" name="hora1"
+<input class = ""type="time" id="hora1" name="hora1"
 	   value="00:00"
        min="00:00:00" max="23:59:59">
+    </div>
+    <div>
 <input type="date" id="fecha2" name="fecha2"
 value=<?php echo date("Y-m-d"); ?>
        min="2001-01-01" max="2025-12-31">
-<input class ="m-2"type="time" id="hora2" name="hora2"
+<input class =""type="time" id="hora2" name="hora2"
 	   value="23:59"
        min="00:00" max="23:59:59">
+    </div>
 </div>
 <button type="button" id = "update" style="background-color: #4B6587;color:#F7F6F2;" class="btn" value="<?php echo $_GET['num'] ?>">Filtrar</button>
-<button type="button" id = "ultimo" style="background-color: #4B6587;color:#F7F6F2;" class="btn" value=<?php echo json_encode(array(
-    "num" => $_GET['num'],
-    "fecha" => date("Y-m-d"),
-)); ?>>Ultimo</button>
+
 </div>
 </form>
 <div class="mb-3 p-3">
@@ -87,6 +91,10 @@ value=<?php echo date("Y-m-d"); ?>
                 <i class="fas fa-align-left"></i>
                 <span>Filtros</span>
             </button>
+            <button type="button" id = "ultimo" style="background-color: #4B6587;color:#F7F6F2;" class="btn" value=<?php echo json_encode(array(
+    "num" => $_GET['num'],
+    "fecha" => date("Y-m-d"),
+)); ?>>Actualizar</button>
 
         </div>
     </nav>

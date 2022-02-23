@@ -1,11 +1,11 @@
-<?php
-	$host = "localhost";
-	$user = "root";
-	$pass = "Vicente2112@";
-	$database = "logs";
-	$conn =mysqli_connect($host, $user, $pass, $database);
-	$result = $conn->query("SELECT nombre ")
-?>
+<!-- <?php
+	// $host = "localhost";
+	// $user = "root";
+	// $pass = "Vicente2112@";
+	// $database = "logs";
+	// $conn =mysqli_connect($host, $user, $pass, $database);
+	// $result = $conn->query("SELECT nombre ")
+?> -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -24,69 +24,12 @@
 </head>
 <body>
 <div class="wrapper"> 
-	<div id="sidebar" class = "bg-primary">
-<div class="sidebar-header text-light">
-                <h3>Logs Falp Intranet</h3>
-            </div>
-		<div class = "active">
-<!--			<a href= "#" class="d-block text-light p-3"><i class="icon ion-md-apps mr-2 lead"></i> Tablero</a>
-			<a href= "#" class="d-block text-light p-3"><i class="icon ion-md-stats mr-2 lead"></i> Filtros</a>
-		    <a href= "#" class="d-block text-light p-3"><i class="icon ion-md-person mr-2 lead"></i> Perfil</a>
-			<a href= "#" class="d-block text-light p-3"><i class="icon ion-md-settings mr-2 lead"></i> Configuracion</a>
--->
-<form >
-<div class = "p-3 text-light">
-<label for="customRange1" class="form-label">Filtro hora y fecha</label>
-<div class="mb-3">
-<input type="date" id="fecha1" name="fecha1"
-	   value=<?php echo date("Y-m-d"); ?>
-       min="2001-01-01" max="2025-12-31">
-<input class = "m-2"type="time" id="hora1" name="hora1"
-	   value="00:00"
-       min="00:00:00" max="23:59:59">
-<input type="date" id="fecha2" name="fecha2"
-value=<?php echo date("Y-m-d"); ?>
-       min="2001-01-01" max="2025-12-31">
-<input class ="m-2"type="time" id="hora2" name="hora2"
-	   value="23:59"
-       min="00:00" max="23:59:59">
-</div>
-<button type="button" id = "update" style="background-color: #4B6587;color:#F7F6F2;" class="btn">Filtrar</button>
-
-</div>
-</form>
-<div class="mb-3 p-3">
-      <label for="disabledSelect" class="form-label">Metodo</label>
-      <select id="Metodos" class="form-select">
-        <option>SIN ELEGIR
-        </option>
-        <option>OPTIONS</option>
-        <option>GET</option>
-        <option>POST</option>
-        <option>PUT</option>
-        <option>DELETE</option>
-        <option>HEAD</option>
-        <option>TRACE</option>
-        <option>CONNECT</option>
-
-      </select>
-    </div>
- </div>
- </div>
+	
  <div class="content">
-<nav class="navbar navbar-expand-lg" style="background-color:#F0E5CF;">
-        <div class="container-fluid">
 
-            <button type="button" id="sidebarCollapse" class="btn">
-                <i class="fas fa-align-left"></i>
-                <span>Filtros</span>
-            </button>
-
-        </div>
-    </nav>
 	<div class="container d-flex justify-content-center">
 		<div class="row">
-		<div class="card" style="width: 18rem; margin:50px;align-items:center; padding:10px;">
+		<div class="card" style="width: 18rem; align-items:center; padding:10px;">
   <img class="card-img-top" src="./src/server.png" alt="Server 1">
   <div class="card-body">
     <h5 class="card-title">Logs Server 1</h5>
@@ -100,7 +43,7 @@ value=<?php echo date("Y-m-d"); ?>
 </a>
   </div>
   </div>
-  <div class="card" style="width: 18rem;margin:50px;align-items:center;padding:10px;">
+  <div class="card" style="width: 18rem;align-items:center;padding:10px;">
   <img class="card-img-top" src="./src/server.png" alt="Server 2">
   <div class="card-body">
     <h5 class="card-title">Logs Server 2</h5>
@@ -116,7 +59,7 @@ value=<?php echo date("Y-m-d"); ?>
     </center>
   </div>
   </div>
-  <div class="card" style="width: 18rem;margin:50px; align-items:center;padding:10px;">
+  <div class="card" style="width: 18rem; align-items:center;padding:10px;">
   <img class="card-img-top" src="./src/server.png" alt="Server 3">
   <div class="card-body">
     <h5 class="card-title">Logs Server 3</h5>
