@@ -2,7 +2,7 @@
 <?php 
 $host = "localhost";
 $user = "root";
-$pass = "Vicente2112@";
+$pass = "Falp_2020";
 $database = "logs";
 $conn =mysqli_connect($host, $user, $pass, $database);
 
@@ -28,7 +28,6 @@ $data = array();
    );
   array_push($data, $row_data);
  }
-
 //$fecha = strtotime($fecha) + strtotime("1 days");
  echo json_encode($data);
 ?>

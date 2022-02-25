@@ -35,8 +35,8 @@
     <h5 class="card-title">Logs Server 1</h5>
     <p class="card-text">Puerto: 3200</p>
     <center>
-    <a href="tabla.php?num=1">
-    <button type="button" id="entrar2" class="btn" style="background-color: #F0E5CF;" value = "2">
+    <a href="tabla.php?num=3200">
+    <button type="button" id="entrar2" class="btn" style="background-color: #F0E5CF;" value = "3200">
                 <i class="fas fa-align-left"></i>
                 <span>Entrar</span>
             </button>
@@ -49,8 +49,8 @@
     <h5 class="card-title">Logs Server 2</h5>
     <p class="card-text">Puerto: 3210</p>
     <center>
-    <a href="tabla.php?num=2">
-    <button type="button" id="entrar2" class="btn" style="background-color: #F0E5CF;" value = "2">
+    <a href="tabla.php?num=3210">
+    <button type="button" id="entrar2" class="btn" style="background-color: #F0E5CF;" value = "3210">
                 <i class="fas fa-align-left"></i>
                 <span>Entrar</span>
             </button>
@@ -65,8 +65,8 @@
     <h5 class="card-title">Logs Server 3</h5>
     <p class="card-text">Puerto: 3500</p>
     <center>
-    <a href="tabla.php?num=3">
-    <button type="button" id="entrar2" class="btn" style="background-color: #F0E5CF;" value = "2">
+    <a href="tabla.php?num=3501">
+    <button type="button" id="entrar2" class="btn" style="background-color: #F0E5CF;" value = "3500">
                 <i class="fas fa-align-left"></i>
                 <span>Entrar</span>
             </button>
@@ -87,6 +87,7 @@
 
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.js"></script>
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
 <script src="js/scripts.js"></script>
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 

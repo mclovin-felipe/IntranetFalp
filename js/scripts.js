@@ -40,15 +40,69 @@ $(document).ready(function () {
 	}).done(data =>{console.log(data);crearTabla(data)});
 });
 $("#ultimo").click(function() {
+	let dato = $.parseJSON($('#ultimo').val());
+	console.log(dato);
 	console.log("hola");
+	let fecha1 = dato['fecha'].replace(/-/g, "");
 	$.ajax({
 		method:"GET",
-		url:`http://localhost:3300/api/SubirLogFecha?fecha=20220222`
+		url:`http://10.111.140.49:${dato['num']}/api/SubirLogFecha?fecha=${fecha1}`
 
 	}).done(data =>{
-		setTimeout(timeout,300 )
+		timeout();
 		});
 })
+$("#BorrarTabla").click(function(){
+	let dato = $.parseJSON($('#ultimo').val());
+	let tipo = dato['num'];
+var dataPoints = [];
+	
+	var options =  {
+		animationEnabled: true,
+		theme: "light2",
+		title: {
+			text: "Uso de la api diario"
+		},
+		axisX: {
+			valueFormatString: "DD MMM YYYY",
+			title:"Dias"
+		},
+		axisY: {
+			title: "Consultas",
+			titleFontSize: 24
+		},
+		data: [{
+			type: "column", 
+			yValueFormatString: "$#,###.##",
+			dataPoints: dataPoints
+		}]
+	};
+	
+	function addData(data) {
+		console.log(data);
+		
+		
+		for (var i = 0; i < data.length; i++) {
+			dataPoints.push({
+				label: data[i]['log_origen'],
+				y: parseFloat(data[i]['suma'])
+			});
+			$('#Metodos').append(`<option value="${data[i]['log_origen']}">
+                                       ${data[i]['log_origen']}
+                                  </option>`);
+		}
+
+		$('#table_id').parents('div.dataTables_wrapper').first().hide();
+		$("#chartContainer").CanvasJSChart(options);
+	
+	}
+	
+		$.getJSON(`grafico.php?num=${tipo}`, addData);
+	
+	
+})
+
+
 function timeout() {
 	location.reload();
 }
@@ -93,14 +147,73 @@ $(window).resize(function() {
 $('select').on('change', function (e) {
 	var optionSelected = $("option:selected", this);
     var valueSelected = this.value;
-	console.log(valueSelected);
-	let table = $("#table_id").DataTable();
-	var filteredData = table
-    .column( 2 )
-    .data()
-    .filter( function ( value, index ) {
-        return value === valueSelected ? true : false;
-    } );
+	let fecha = valueSelected;
+	fecha = fecha.split('_')[1].split('.')[0];
+	console.log(fecha);
+	let dato = $.parseJSON($('#ultimo').val());
+	let tipo = dato['num'];
+	$.ajax({
+		method:"GET",
+		url:`http://10.111.140.49:3501/api/GetLogFecha?fecha=${fecha}`
+	}).done(data =>{
+		let option = [];
+		let post = 0.0
+		let get=0.0
+		let patch=0.0
+		let deletee=0.0
+		let put=0.0	
+		let servicios = [];
+		let servicios_padre = [];
+
+		datos = data['resultado'];
+		for (let i = 0; i < datos.length; i++) {
+			if(datos[i]['metodo']==="POST")post+=1;
+			if(datos[i]['metodo']==="GET")get+=1;
+			if(datos[i]['metodo']==="PATCH")patch+=1;
+			if(datos[i]['metodo']==="DELETE")deletee+=1;
+			if(datos[i]['metodo']==="PUT")put+=1;
+			servicios.push(datos[i]['enlace'].split('/')[3]);
+			if (!servicios_padre.includes(datos[i]['enlace'].split('/')[3])){
+				servicios_padre.push(datos[i]['enlace'].split('/')[3]);
+			}
+
+			
+		}
+		const pizza_servicio = []
+		function getOccurrence(array, value) {
+			return array.filter((v) => (v === value)).length;
+		}
+		console.log(servicios_padre);
+
+		var dataPoints = [];
+		var options2 = {
+			title: {
+				text: "Tipo de consultas"
+			},
+			subtitles: [{
+				text: `En el dia ${fecha}`
+			}],
+			animationEnabled: true,
+			data: [{
+				type: "pie",
+				startAngle: 40,
+				toolTipContent: "<b>{label}</b>: {y}%",
+				showInLegend: "true",
+				legendText: "{label}",
+				indexLabelFontSize: 16,
+				indexLabel: "{label} - {y}%",
+				dataPoints: [
+					{ y: (100*parseFloat(post))/datos.length, label: "POST" },
+					{ y: (100*parseFloat(get))/datos.length, label: "GET" },
+					{ y: (100*parseFloat(patch))/datos.length, label: "PATCH" },
+					{ y: (100*parseFloat(deletee))/datos.length, label: "DELETE" },
+					{ y: (100*parseFloat(put))/datos.length, label: "PUT" }
+				]
+			}]
+		};
+		
+	$("#pizza").CanvasJSChart(options2);
+	});
 });
 // $(document).ready(function () {
 // 	$("#entrar").on("click", function () {

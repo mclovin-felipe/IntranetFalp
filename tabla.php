@@ -1,6 +1,5 @@
 <?php 
 date_default_timezone_set("America/Santiago");
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -64,18 +63,15 @@ value=<?php echo date("Y-m-d"); ?>
 <div class="mb-3 p-3">
       <label for="disabledSelect" class="form-label">Metodo</label>
       <select id="Metodos" class="form-select">
-        <option>SIN ELEGIR</option>
-        <option>OPTIONS</option>
-        <option>GET</option>
-        <option>POST</option>
-        <option>PUT</option>
-        <option>DELETE</option>
-        <option>HEAD</option>
-        <option>TRACE</option>
-        <option>CONNECT</option>
+        
 
       </select>
     </div>
+    <button type="button" id="BorrarTabla" class="btn" value=<?php echo json_encode(array(
+    "num" => $_GET['num']))?>>
+                <i class="fas fa-align-right"></i>
+                <span>Mostrar graficos</span>
+            </button>
  </div>
  </div>
 <!----->
@@ -91,6 +87,8 @@ value=<?php echo date("Y-m-d"); ?>
                 <i class="fas fa-align-left"></i>
                 <span>Filtros</span>
             </button>
+            
+            <h2 style="color: #4B6587;">Servidor: <?php echo $_GET['num'] ?></h2>
             <button type="button" id = "ultimo" style="background-color: #4B6587;color:#F7F6F2;" class="btn" value=<?php echo json_encode(array(
     "num" => $_GET['num'],
     "fecha" => date("Y-m-d"),
@@ -115,6 +113,10 @@ value=<?php echo date("Y-m-d"); ?>
     <tbody>
 	</tbody>
 </table>
+<center>
+<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+<div id="pizza" style="height: 300px; width: 100%;"></div>
+</center>
 </div>
 </div>
  </div>
@@ -122,10 +124,13 @@ value=<?php echo date("Y-m-d"); ?>
 <!----->
 <!----->
 <!----->
+
 </div>
+
  </body>
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.js"></script>
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
 <script src="js/scripts.js"></script>
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
