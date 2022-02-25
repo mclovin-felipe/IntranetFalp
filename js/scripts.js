@@ -73,7 +73,7 @@ var dataPoints = [];
 		},
 		data: [{
 			type: "column", 
-			yValueFormatString: "$#,###.##",
+			yValueFormatString: "#,###.##",
 			dataPoints: dataPoints
 		}]
 	};

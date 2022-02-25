@@ -1,17 +1,17 @@
 
- CREATE TABLE nombre_log1 (
+ CREATE TABLE nombre_API_3210 (
      nombre VARCHAR(100),
      PRIMARY KEY (nombre)
  );
- CREATE TABLE nombre_log2 (
+ CREATE TABLE nombre_API_3200 (
      nombre VARCHAR(100),
      PRIMARY KEY (nombre)
  );
- CREATE TABLE nombre_log3 (
+ CREATE TABLE nombre_API_3500 (
      nombre VARCHAR(100),
      PRIMARY KEY (nombre)
  );
-CREATE TABLE API_1 ( 
+CREATE TABLE API_3210 ( 
     id BIGINT NOT NULL AUTO_INCREMENT,
     log_origen VARCHAR(100),
     fecha datetime,
@@ -22,9 +22,9 @@ CREATE TABLE API_1 (
     IP_cliente varchar(100),
        largo_peticion int,
  PRIMARY KEY (id),
- FOREIGN KEY (log_origen) REFERENCES nombre_log1(nombre)
+ FOREIGN KEY (log_origen) REFERENCES nombre_API_3210(nombre)
  );
-CREATE TABLE API_2 ( 
+CREATE TABLE API_3200 ( 
     id BIGINT NOT NULL AUTO_INCREMENT,
     log_origen VARCHAR(100),
     fecha datetime,
@@ -35,10 +35,10 @@ CREATE TABLE API_2 (
     IP_cliente varchar(100),
        largo_peticion int,
  PRIMARY KEY (id),
- FOREIGN KEY (log_origen) REFERENCES nombre_log2(nombre)
+ FOREIGN KEY (log_origen) REFERENCES nombre_API_3200(nombre)
  
    );
-CREATE TABLE API_3 ( 
+CREATE TABLE API_3500 ( 
     id BIGINT NOT NULL AUTO_INCREMENT,
     log_origen VARCHAR(100),
     fecha datetime,
@@ -49,6 +49,6 @@ CREATE TABLE API_3 (
     IP_cliente varchar(100),
        largo_peticion int,
  PRIMARY KEY (id),
- FOREIGN KEY (log_origen) REFERENCES nombre_log3(nombre)
+ FOREIGN KEY (log_origen) REFERENCES nombre_API_3500(nombre)
  
    );

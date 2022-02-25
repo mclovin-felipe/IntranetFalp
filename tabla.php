@@ -26,7 +26,7 @@ date_default_timezone_set("America/Santiago");
 <!----->
 <div class="wrapper"> 
 	<div id="sidebar" class = "bg-primary">
-<div class="sidebar-header text-light">
+<div class="sidebar-header" style={color:var(--colorback);}>
                 <h3>Logs Falp Intranet</h3>
             </div>
 		<div class = "active">
@@ -56,8 +56,9 @@ value=<?php echo date("Y-m-d"); ?>
        min="00:00" max="23:59:59">
     </div>
 </div>
-<button type="button" id = "update" style="background-color: #4B6587;color:#F7F6F2;" class="btn" value="<?php echo $_GET['num'] ?>">Filtrar</button>
-
+<center>
+<button type="button" id = "update" style="background-color:var(--boton);color:#F7F6F2; margin-top:1vh;" class="btn" value="<?php echo $_GET['num'] ?>">Filtrar</button>
+</center>
 </div>
 </form>
 <div class="mb-3 p-3">
@@ -67,11 +68,13 @@ value=<?php echo date("Y-m-d"); ?>
 
       </select>
     </div>
-    <button type="button" id="BorrarTabla" class="btn" value=<?php echo json_encode(array(
+    <center>
+    <button type="button" id="BorrarTabla" class="btn" style="background-color:var(--boton);color:#F7F6F2"value=<?php echo json_encode(array(
     "num" => $_GET['num']))?>>
                 <i class="fas fa-align-right"></i>
                 <span>Mostrar graficos</span>
             </button>
+</center>
  </div>
  </div>
 <!----->
@@ -80,7 +83,7 @@ value=<?php echo date("Y-m-d"); ?>
 <!----->
 <!----->
 <div class="content">
-<nav class="navbar navbar-expand-lg" style="background-color:#F0E5CF;">
+<nav class="navbar navbar-expand-lg" style="background-color:#EEEEEE;">
         <div class="container-fluid">
 
             <button type="button" id="sidebarCollapse" class="btn">
@@ -88,8 +91,8 @@ value=<?php echo date("Y-m-d"); ?>
                 <span>Filtros</span>
             </button>
             
-            <h2 style="color: #4B6587;">Servidor: <?php echo $_GET['num'] ?></h2>
-            <button type="button" id = "ultimo" style="background-color: #4B6587;color:#F7F6F2;" class="btn" value=<?php echo json_encode(array(
+            <h2 style="color: var(--oscuro);">Servidor: <?php echo $_GET['num'] ?></h2>
+            <button type="button" id = "ultimo" style="background-color: var(--oscuro);color:var(--colorback);" class="btn" value=<?php echo json_encode(array(
     "num" => $_GET['num'],
     "fecha" => date("Y-m-d"),
 )); ?>>Actualizar</button>

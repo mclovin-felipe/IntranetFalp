@@ -36,7 +36,7 @@
     <p class="card-text">Puerto: 3200</p>
     <center>
     <a href="tabla.php?num=3200">
-    <button type="button" id="entrar2" class="btn" style="background-color: #F0E5CF;" value = "3200">
+    <button type="button" id="entrar2" class="btn" style="background-color: #00ADB5;" value = "3200">
                 <i class="fas fa-align-left"></i>
                 <span>Entrar</span>
             </button>
@@ -50,7 +50,7 @@
     <p class="card-text">Puerto: 3210</p>
     <center>
     <a href="tabla.php?num=3210">
-    <button type="button" id="entrar2" class="btn" style="background-color: #F0E5CF;" value = "3210">
+    <button type="button" id="entrar2" class="btn" style="background-color: #00ADB5;" value = "3210">
                 <i class="fas fa-align-left"></i>
                 <span>Entrar</span>
             </button>
@@ -66,7 +66,7 @@
     <p class="card-text">Puerto: 3500</p>
     <center>
     <a href="tabla.php?num=3501">
-    <button type="button" id="entrar2" class="btn" style="background-color: #F0E5CF;" value = "3500">
+    <button type="button" id="entrar2" class="btn" style="background-color: #00ADB5;" value = "3500">
                 <i class="fas fa-align-left"></i>
                 <span>Entrar</span>
             </button>
