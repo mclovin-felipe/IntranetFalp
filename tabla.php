@@ -95,6 +95,7 @@ value=<?php echo date("Y-m-d"); ?>
             <button type="button" id = "ultimo" style="background-color: var(--oscuro);color:var(--colorback);" class="btn" value=<?php echo json_encode(array(
     "num" => $_GET['num'],
     "fecha" => date("Y-m-d"),
+	"numconfig" => $_GET['numconfig']
 )); ?>>Actualizar</button>
 
         </div>
@@ -118,7 +119,8 @@ value=<?php echo date("Y-m-d"); ?>
 </table>
 <center>
 <div id="chartContainer" style="height: 300px; width: 100%;"></div>
-<div id="pizza" style="height: 300px; width: 100%;"></div>
+<div id="pizza" class = "position-absolute start-0" style="margin-left:250px;height: 300px;"></div>
+<div id="pizza-enlaces" class = "position-absolute end-0" style="height: 300px;"></div>
 </center>
 </div>
 </div>

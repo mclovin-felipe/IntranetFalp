@@ -35,7 +35,7 @@
     <h5 class="card-title">Logs Server 1</h5>
     <p class="card-text">Puerto: 3200</p>
     <center>
-    <a href="tabla.php?num=3200">
+    <a href="tabla.php?num=3200&numconfig=1">
     <button type="button" id="entrar2" class="btn" style="background-color: #00ADB5;" value = "3200">
                 <i class="fas fa-align-left"></i>
                 <span>Entrar</span>
@@ -49,7 +49,7 @@
     <h5 class="card-title">Logs Server 2</h5>
     <p class="card-text">Puerto: 3210</p>
     <center>
-    <a href="tabla.php?num=3210">
+    <a href="tabla.php?num=3210&numconfig=0">
     <button type="button" id="entrar2" class="btn" style="background-color: #00ADB5;" value = "3210">
                 <i class="fas fa-align-left"></i>
                 <span>Entrar</span>
@@ -65,7 +65,7 @@
     <h5 class="card-title">Logs Server 3</h5>
     <p class="card-text">Puerto: 3500</p>
     <center>
-    <a href="tabla.php?num=3501">
+    <a href="tabla.php?num=3501&numconfig=2">
     <button type="button" id="entrar2" class="btn" style="background-color: #00ADB5;" value = "3500">
                 <i class="fas fa-align-left"></i>
                 <span>Entrar</span>

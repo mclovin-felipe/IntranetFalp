@@ -46,7 +46,7 @@ $("#ultimo").click(function() {
 	let fecha1 = dato['fecha'].replace(/-/g, "");
 	$.ajax({
 		method:"GET",
-		url:`http://10.111.140.49:${dato['num']}/api/SubirLogFecha?fecha=${fecha1}`
+		url:`http://10.111.140.49:3501/api/SubirLogFecha?fecha=${fecha1}&numconfig=${dato['numconfig']}`
 
 	}).done(data =>{
 		timeout();
