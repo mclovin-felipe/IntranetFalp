@@ -26,7 +26,7 @@ date_default_timezone_set("America/Santiago");
 <!----->
 <div class="wrapper"> 
 	<div id="sidebar" class = "bg-primary">
-<div class="sidebar-header" style={color:var(--colorback);}>
+<div class="sidebar-header" style="color:var(--colorback);">
                 <h3>Logs Falp Intranet</h3>
             </div>
 		<div class = "active">
@@ -64,10 +64,13 @@ value=<?php echo date("Y-m-d"); ?>
 <div class="mb-3 p-3">
       <label for="disabledSelect" class="form-label">Metodo</label>
       <select id="Metodos" class="form-select">
-        
-
+        <option>No disponible</option>
       </select>
     </div>
+      <label for "disabledSelect" class="form-label">Servicios</label>
+      <select id="Servicios" class="form-select">
+        <option>No disponible</option>
+      </select>
     <center>
     <button type="button" id="BorrarTabla" class="btn" style="background-color:var(--boton);color:#F7F6F2"value=<?php echo json_encode(array(
     "num" => $_GET['num']))?>>
