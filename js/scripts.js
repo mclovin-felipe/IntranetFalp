@@ -185,9 +185,10 @@ $('select').on('change', function (e) {
     }
     console.log(servicios_padre);
 
-      $('#Servicios').append(`<option value="${data[i]['log_origen']}">
+    $('#Servicios').append(`<option value="${data[i]['log_origen']}">
                                        ${data[i]['log_origen']}
                                   </option>`);
+
     var dataPoints = [];
     var options2 = {
       title: {
@@ -224,3 +225,15 @@ $('select').on('change', function (e) {
 //         window.location = `/tabla.php?num=${num}`;
 //     });
 // });
+// AdminPortal
+// w04c2rtx21ADM
+// Servicio mas utilizado
+// CAIDAS POR MES
+// ultima caida
+// servicio con mas fallas
+// #004A91 azul
+// #fc7229 naranjo
+// #fbb800 mostaza
+// Importar en excel otras fechas.
+// https://desafalp.institutoncologicofalp.cl/wp-content/themes/falpwebsite/img/logo-falp_morado.svg
+https://desafalp.institutoncologicofalp.cl/wp-content/themes/falpwebsite/img/logo-falp.svg
